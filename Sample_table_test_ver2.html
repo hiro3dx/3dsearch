@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
+
+<head>
+	<title>DSIS Sample Widget patch Data</title>
+
+	<meta name="author" content="DSIS" />
+	<meta name="description" content="DSIS Sample Widget WAFData" />
+	<meta name="apiVersion" content="1.3" />
+	<meta name="debugMode" content="true" />
+	<meta name="strictMode" content="false" />
+
+	<!-- Application Preferences -->
+	<widget:preferences>
+		<widget:preference type="hidden" name="urlREST" label="URL REST Service" defaultValue='https://eno10.ots.co.jp/3dspace/resources/v1/modeler/dseng/dseng:EngItem' />
+		<widget:preference type="hidden" name="urlCSRF" label="URL REST Service" defaultValue='https://eno10.ots.co.jp/3dspace/resources/v1/application/CSRF' />
+		<widget:preference type="text" name="ctx" label="Security Context" defaultValue='VPLMAdmin.Company Name.Default' />
+		<widget:preference type="hidden" name="typeObj" label="Type of Object" defaultValue='VPMReference' />
+		<widget:preference type="hidden" name="typeCSRF" label="Type of CSRF" defaultValue='csrf' />
+	</widget:preferences>
+
+	<!-- Widget files -->
+	<link rel="stylesheet" type="text/css" href="styles/Main.css" />
+	<script type="text/javascript" src="scripts/Main.js"></script>
+
+	<script type="text/javascript">
+		function widgetLoading() {
+			if (widget) {
+				executeWidgetCode();
+			} else {
+				console.warn("Defered widget Loading");
+				setTimeout(widgetLoading, 100); //Wait for widget object to be added correctly
+			}
+		}
+		widgetLoading();
+	</script>
+
+</head>
+
+<body>
+	<p>3DSearch上で属性を変更したい物理プロダクトをドラッグアンドドロップしてください。</p>
+</body>
+
+</html>
